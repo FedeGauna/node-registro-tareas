@@ -16,9 +16,6 @@ const {
 
 const Tareas = require('./models/tareas');
 
-// Reemplazado por inquirer
-// const { mostrarMenu, pausa } = require('./helpers/mensajes');
-
 const main = async() => {
 
     let opt = '';
@@ -29,12 +26,7 @@ const main = async() => {
         tareas.cargarTareasFromArray( tareasRepo );
     }
 
-    // await pausa();
-
     do {
-
-        //Reemplazado por inquirer
-        //opt = await mostrarMenu();
 
         opt = await inquirerMenu();
 
@@ -45,10 +37,8 @@ const main = async() => {
             break;
 
             case '2':
-                //console.log( tareas.listadoArr );
                 tareas.listadoCompleto();
             break;
-
             
             case '3':
                 tareas.listadoPorEstado(completa = true);
@@ -77,16 +67,12 @@ const main = async() => {
 
         }
 
-        //console.log({ opt });
         guardarEnRepo( tareas.listadoArr );
 
         await pausa();
-        
-        // if( opt !== '0' ) await pausa();
 
     } while( opt !== '0' );
     
-    //pausa();
 }
 
 

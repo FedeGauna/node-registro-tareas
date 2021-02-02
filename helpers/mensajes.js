@@ -1,5 +1,3 @@
-const { resolve } = require('path');
-
 require('colors');
 
 const mostrarMenu = () => {
@@ -50,8 +48,6 @@ const pausa = () => {
 
     });
 }
-
-
 
 module.exports = {
     mostrarMenu,

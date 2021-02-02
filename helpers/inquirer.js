@@ -1,5 +1,4 @@
 const inquirer = require('inquirer');
-const Tarea = require('../models/tarea');
 require('colors');
 
 const preguntas = [

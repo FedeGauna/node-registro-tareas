@@ -1,6 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
 
-
 class Tarea {
     id = '';
     desc = '';
@@ -12,7 +11,5 @@ class Tarea {
         this.completadaEn = null;
     }
 }
-
-
 
 module.exports = Tarea;

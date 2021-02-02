@@ -41,17 +41,6 @@ class Tareas {
     }
 
     listadoCompleto() {
-
-        //console.log(this._listado);
-        
-        // Opcion 1
-        // Object.keys(this._listado).forEach( (key, index) => {
-        //     const tarea = this._listado[key];
-        //     let i = (index + 1).toString(); 
-        //     tarea.completadaEn
-        //         ? console.log(`${ i.green }. ${ tarea.desc } :: ${ 'Completada'.green } `)  
-        //         : console.log(`${ i.red }. ${ tarea.desc } :: ${ 'Pendiente'.red } `);
-        // })
         console.log();
         this.listadoArr.forEach((tarea, index) => {
 

@@ -1,29 +1,29 @@
 require('colors');
 
 const { 
-    guardarEnRepo,
-    leerDeRepo
-} = require('./helpers/guardarArchivo');
+    saveData,
+    getData
+} = require('./helpers/repositoryActions');
 
 const { 
     inquirerMenu, 
-    pausa,
-    leerInput,
-    listadoTareasBorrar,
-    confirmar,
-    mostrarListadoChecklist
+    pause,
+    readInput,
+    tasksToDelete,
+    confirm,
+    showChecklist
 } = require('./helpers/inquirer');
 
-const Tareas = require('./models/tareas');
+const Tasks = require('./models/tasks');
 
 const main = async() => {
 
     let opt = '';
-    const tareas = new Tareas();
-    const tareasRepo = leerDeRepo();
+    const tasks = new Tasks();
+    const savedTasks = getData();
 
-    if ( tareasRepo ) {
-        tareas.cargarTareasFromArray( tareasRepo );
+    if ( savedTasks ) {
+        tasks.loadTasksFromArray( savedTasks );
     }
 
     do {
@@ -32,34 +32,34 @@ const main = async() => {
 
         switch (opt) {
             case '1':
-                const desc = await leerInput('Descripcion:  ');
-                tareas.crearTarea( desc );
+                const desc = await readInput('Description:  ');
+                tasks.createTask( desc );
             break;
 
             case '2':
-                tareas.listadoCompleto();
+                tasks.readAllTasks();
             break;
             
             case '3':
-                tareas.listadoPorEstado(completa = true);
+                tasks.readByStatus(completed = true);
             break;
 
             case '4':
-                tareas.listadoPorEstado(completa = false);
+                tasks.readByStatus(completed = false);
             break;
 
             case '5':
-                const ids = await mostrarListadoChecklist( tareas.listadoArr );
-                tareas.toggleCompletadas( ids );
+                const ids = await showChecklist( tasks.arrayList );
+                tasks.toggleStatus( ids );
             break;
 
             case '6':
-                const id = await listadoTareasBorrar( tareas.listadoArr );
+                const id = await tasksToDelete( tasks.arrayList );
                 if( id !== '0' ) {
-                    const ok = await confirmar('¿Esta seguro que desea borrarla? '); 
+                    const ok = await confirm('¿ Are you sure you want to delete it ? '); 
                     if (ok) {
-                        tareas.borrarTarea( id );
-                        console.log('Tarea borrada!'.yellow);
+                        tasks.deleteTask( id );
+                        console.log('The task has been deleted!'.yellow);
                     }
                 }
 
@@ -67,9 +67,9 @@ const main = async() => {
 
         }
 
-        guardarEnRepo( tareas.listadoArr );
+        saveData( tasks.arrayList );
 
-        await pausa();
+        await pause();
 
     } while( opt !== '0' );
     

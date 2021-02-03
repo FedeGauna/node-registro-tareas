@@ -1,8 +1,8 @@
-# node-registro-tareas
-## ABML de tareas hecho en Node a modo de práctica.
+# todo-app
+## CRUD of tasks made in Node as a practise.
 
 ```
-   Esta aplicación de consola permite realizar un ABML (Altas Bajas Modificaciones y Listado) de tareas a traves de un menú interactivo con distintas opciones para poder llevar un registro actualizado de las mismas y grabarlo en un archivo de tipo JSON dentro del mismo proyecto (Carpeta repo).
+   This console application allows to make a CRUD (Create Read Update Delete) of tasks through an interactive menu with different options to keep an updated record of them and save it in a JSON file inside the same project (repository folder)
 ```
 
-***Una vez descargado el proyecto, es necesario ejecutar el comando `npm install` para descargar los módulos de node.***
+***Once the project is downloaded, it is necessary to execute the `npm install` command to download the required node modules.***

@@ -1,28 +1,28 @@
 require('colors');
 
-const mostrarMenu = () => {
+const displayMenu = () => {
 
     return new Promise( resolve => {
 
         console.clear();
         console.log('============================='.green);
-        console.log('    Seleccione una opcion    '.green);
+        console.log('       Choose an option      '.green);
         console.log('=============================\n'.green);
     
-        console.log(`${ '1.'.yellow } Crear tarea`);
-        console.log(`${ '2.'.yellow } Listar tareas`);
-        console.log(`${ '3.'.yellow } Listar tareas completadas`);
-        console.log(`${ '4.'.yellow } Listar tareas pendientes`);
-        console.log(`${ '5.'.yellow } Completar tarea(s)`);
-        console.log(`${ '6.'.yellow } Borrar tarea`);
-        console.log(`${ '0.'.yellow } Salir \n`);
+        console.log(`${ '1.'.yellow } Add task`);
+        console.log(`${ '2.'.yellow } View all tasks`);
+        console.log(`${ '3.'.yellow } View completed tasks`);
+        console.log(`${ '4.'.yellow } View pending tasks`);
+        console.log(`${ '5.'.yellow } Update tasks status`);
+        console.log(`${ '6.'.yellow } Remove task`);
+        console.log(`${ '0.'.yellow } Exit \n`);
     
         const readline = require('readline').createInterface({
             input: process.stdin,
             output: process.stdout
         });
     
-        readline.question('Seleccione una opcion: ', (opt) => {
+        readline.question('Choose an option: ', (opt) => {
             readline.close();
             resolve(opt);
         })
@@ -31,7 +31,7 @@ const mostrarMenu = () => {
 
 }
 
-const pausa = () => {
+const pause = () => {
 
     return new Promise( resolve => {
 
@@ -40,7 +40,7 @@ const pausa = () => {
             output: process.stdout
         });
     
-        readline.question(`\nPresione ${ 'ENTER'.red } para continuar.\n`, () => {
+        readline.question(`\nPress ${ 'ENTER'.red } to continue.\n`, () => {
 
             readline.close();
             resolve();
@@ -50,6 +50,6 @@ const pausa = () => {
 }
 
 module.exports = {
-    mostrarMenu,
-    pausa
+    displayMenu,
+    pause
 }

@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+const { randomUUID } = require('crypto');
 
 class Task {
     id = '';
@@ -6,7 +6,7 @@ class Task {
     completionDate = null;
 
     constructor( desc ) {
-        this.id = uuidv4();
+        this.id = randomUUID();
         this.desc = desc;
         this.completionDate = null;
     }

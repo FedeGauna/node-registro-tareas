@@ -1,8 +1,22 @@
 # todo-app
-## CRUD of tasks made in Node as a practise.
 
-```
-   This console application allows to make a CRUD (Create Read Update Delete) of tasks through an interactive menu with different options to keep an updated record of them and save it in a JSON file inside the same project (repository folder)
+Console-based CRUD task management app developed with Node.js.
+
+Interactive application to create, read, update and delete tasks through a terminal menu. Data is persisted in a local JSON file.
+
+## Requirements
+
+- Node.js
+- pnpm
+
+## Installation
+
+```bash
+pnpm install
 ```
 
-***Once the project is downloaded, it is necessary to execute the `npm install` command to download the required node modules.***
+## Usage
+
+```bash
+pnpm start
+```
